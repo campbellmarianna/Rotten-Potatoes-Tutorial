@@ -10,18 +10,25 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 
-// ROOT ROUTE
-app.get('/', (req,res) => {
-    res.render('home', { msg: 'Handlebars are Cool!'})
-})
 
 
+// OUR MOCK ARRARY OF PROJECTS
+let reviews = [
+    { title: "Great Review", movieTitle: "Batman IT" },
+    { title: "Awesome Movie", movieTitle: "Titanic" }
+]
 
-
-// Check if your connected to server
+//ROOT ROUTE - INDEX
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.render('reviews-index', { reviews: reviews });
 })
+
+/*
+PRIOR ROOT ROUTE
+app.get('/', (req,res) => {
+     res.render('home', { msg: 'Handlebars are Cool!'})
+})
+*/
 
 // Web Server Check
 app.listen(3000, () => {

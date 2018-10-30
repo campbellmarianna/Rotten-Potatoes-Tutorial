@@ -6,6 +6,10 @@ Users can view one review (show)
 Users can delete a review (destroy)
 Users can edit a review (edit/update)
 
+&
+
+Define a single Resource in this app called a review
+
 v2--------------------------------
 
 Users can comment on reviews (comments#create)
