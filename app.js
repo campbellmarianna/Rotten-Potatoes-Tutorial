@@ -15,7 +15,8 @@ app.set('view engine', 'handlebars');
 // OUR MOCK ARRARY OF PROJECTS
 let reviews = [
     { title: "Great Review", movieTitle: "Batman IT" },
-    { title: "Awesome Movie", movieTitle: "Titanic" }
+    { title: "Awesome Movie", movieTitle: "Titanic" },
+    { title: "Funny Movie", movieTitle: "Mall Cop" }
 ]
 
 //ROOT ROUTE - INDEX
