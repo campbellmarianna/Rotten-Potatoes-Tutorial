@@ -1,0 +1,32 @@
+<!--The form tag has an HTML attribute called action that has a value equal to
+the path we want our form to submit its data to /reviews is the route to our
+create action that we will add to our server in the next step-->
+
+<form method="POST" action="/reviews">
+    <fieldset>
+        <legend>New Review</legend>
+        <!-- TITLE -->
+        <p>
+            <label for="review-title">Title</label><br>
+            <input id="review-title" type="text" name="title" />
+        </p>
+
+        <!-- MOVIE TITLE -->
+        <p>
+            <label for="movie-title">Movie Title</label><br>
+            <input id="movie-title" type="text" name="movieTitle" />
+        </p>
+
+        <!--DESCRIPTION -->
+        <p>
+            <label for="description-text">Description</label><br>
+            <textarea id="description-text" name="description" rows="10"> </textarea>
+        </p>
+    </fieldset>
+
+    <!-- BUTTON -->
+    <p>
+        <button type="submit">Save Review</button>
+    </p>
+
+</form>
