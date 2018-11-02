@@ -1,38 +1,9 @@
 <!--The form tag has an HTML attribute called action that has a value equal to
 the path we want our form to submit its data to /reviews is the route to our
-create action that we will add to our server in the next step-->
-
+create action that we will add to our server-->
+<!--views/reviews-new.handlebars-->
 <form method="POST" action="/reviews">
-    <fieldset>
-        <legend>New Review</legend>
-        <!-- TITLE -->
-        <p>
-            <label for="review-title">Title</label><br>
-            <input id="review-title" type="text" name="title" />
-        </p>
-
-        <!-- MOVIE TITLE -->
-        <p>
-            <label for="movie-title">Movie Title</label><br>
-            <input id="movie-title" type="text" name="movieTitle" />
-        </p>
-
-        <!--DESCRIPTION -->
-        <p>
-            <label for="description-text">Description</label><br>
-            <textarea id="description-text" name="description" rows="10"> </textarea>
-        </p>
-        <p>
-            <label for="rating-number">Rating</label><br>
-            <select id="rating-number" name="rating">
-                <option value=5>5</option>
-                <option value=4>4</option>
-                <option value=3>3</option>
-                <option value=2>2</option>
-                <option value=1>1</option>
-                <option value=0>0</option>
-            </select>
-    </fieldset>
+    {{> reviews-form}}
 
     <!-- BUTTON -->
     <p>
