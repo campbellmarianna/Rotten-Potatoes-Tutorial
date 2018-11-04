@@ -21,97 +21,18 @@ app.set('view engine', 'handlebars');
 // Add Body Parser that allows express to see form data that is coming in from a POST request.
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(bodyParser.json());
 // override with POST having ?_method=DELETE or ?_method=PUT
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 
-// Connect to Database via MONGOOSE
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/rotten-potatoes');
+// Import our reviews.js file into our app.js file
+const reviews = require('./controllers/reviews')(app);
 
 /*
-Create Model/Data Layer - where you put the code dedicated to interacting
-the database
+Instead of using require you can use code below:
+// reviews(app);
 */
-const Review = mongoose.model('Review', {
-    title: String,
-    description: String,
-    movieTitle: String,
-    rating: Number,
-})
 
-// OUR MOCK ARRARY OF PROJECTS
-// let reviews = [
-//     { title: "Great Review", movieTitle: "Batman IT" },
-//     { title: "Awesome Movie", movieTitle: "Titanic" },
-//     { title: "Funny Movie", movieTitle: "Mall Cop" }
-// ]
-
-//ROOT ROUTE - INDEX
-app.get('/', (req, res) => {
-    Review.find()
-        // Provide a function for the Promise to call when it resolves- when it finished whatever it was doing.
-       .then(reviews => {
-           res.render('reviews-index', { reviews: reviews });
-    })
-    // Provide a function for the promise to call if it is rejected. A Promise is rejected if it fails.
-    .catch(err => {
-        console.log(err);
-    })
-})
-
-//NEW
-app.get('/reviews/new', (req, res) => {
-    res.render('reviews-new', {});
-
-});
-
-//CREATE
-app.post('/reviews', (req, res) => {
-    Review.create(req.body).then((review) => {
-        console.log(review);
-        res.redirect(`/reviews/${review._id}`) // Redirect to reviews/:id
-    }).catch((err) => {
-        console.log(err.message);
-    })
-});
-
-// SHOW
-app.get('/reviews/:id', (req, res) => {
-    Review.findById(req.params.id).then((review) => {
-        res.render('reviews-show', { review: review })
-    }).catch((err) => {
-        console.log(err.message);
-    })
-});
-
-// EDIT
-app.get('/reviews/:id/edit', (req, res) => {
-    Review.findById(req.params.id, function(err, review) {
-        res.render('reviews-edit', {review: review});
-    })
-});
-
-//UPDATE
-app.put('/reviews/:id', (req, res) => {
-    Review.findByIdAndUpdate(req.params.id, req.body)
-    .then(review => {
-        console.log(review);
-        res.redirect(`/reviews/${review._id}`) // Redirect to reviews/:id
-    })
-    .catch(err => {
-        console.log(err.message)
-    })
-});
-
-// DELETE
-app.delete('/reviews/:id', function (req,res) {
-    console.log("DELETE review")
-    Review.findByIdAndRemove(req.params.id).then((review) => {
-        res.redirect('/');
-    }).catch((err) => {
-        console.log(err.message);
-    })
-})
 
 // Web Server Check
 app.listen(3000, () => {
