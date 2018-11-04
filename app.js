@@ -33,6 +33,7 @@ Instead of using require you can use code below:
 // reviews(app);
 */
 
+module.exports = app;
 
 // Web Server Check
 app.listen(3000, () => {
