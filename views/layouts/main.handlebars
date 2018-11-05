@@ -1,6 +1,6 @@
 <!-- main.handlebars is the layout template! A layout template is a
 super-template that all other templates will inherit from. These templates will
-be threaded in right at the-->
+be threaded in right at the body -->
 
 <!--views.layouts.main.handlebars-->
 <!DOCTYPE html>
@@ -8,10 +8,16 @@ be threaded in right at the-->
 <head>
     <meta charset="utf-8">
     <title>Rotten Potatoes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
 
-    {{{body}}}
+    {{> navbar}}
+    <div class="container">
+        {{{body}}}
+    </div>
 
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="htthttps://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
