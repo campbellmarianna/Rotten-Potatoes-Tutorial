@@ -3,7 +3,7 @@
 // Connect to Database via MONGOOSE
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes');
+//mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes');
 
 /*
 Create Model/Data Layer - where you put the code dedicated to interacting

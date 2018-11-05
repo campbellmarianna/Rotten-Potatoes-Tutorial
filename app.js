@@ -1,4 +1,5 @@
 // app.js
+// https://rotten-potatoes-mc.herokuapp.com
 // Express - define routes
 const express = require('express');
 
@@ -13,6 +14,12 @@ const methodOverride = require('method-override');
 
 // Create an object in express
 const app = express();
+
+// Import Comment object by require Comment in app.js
+const Comment = require('./models/comment');
+
+// Import models/review.js into app.js
+const Review = require('./models/review');
 
 // Create engine
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -34,13 +41,12 @@ Instead of using require you can use code below:
 */
 
 // Point this production mongodb database URI
-// const port = process.env.PORT || 3000;
-// app.listen(port);
-
-module.exports = app;
-
+const port = process.env.PORT || 3000;
+app.listen(port);
 
 // Web Server Check
 app.listen(3000, () => {
     console.log('App listening on port 3000')
 })
+
+module.exports = app;
