@@ -15,6 +15,8 @@ const methodOverride = require('method-override');
 // Create an object in express
 const app = express();
 
+const mongoose = require('mongoose');
+
 // Import Comment object by require Comment in app.js
 const Comment = require('./models/comment');
 
