@@ -43,6 +43,14 @@ Instead of using require you can use code below:
 // Point this production mongodb database URI
 const port = process.env.PORT || 3000;
 
+// Mongoose Connection
+const mongoUri =
+   process.env.MONGODB_URI || "mongodb://localhost:27017/rotten-potatoes";
+mongoose.connect(
+   mongoUri,
+   { useNewUrlParser: true }
+);
+
 
 // Web Server Check
 app.listen(port, () => {
