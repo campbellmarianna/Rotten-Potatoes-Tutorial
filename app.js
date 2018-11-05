@@ -42,10 +42,10 @@ Instead of using require you can use code below:
 
 // Point this production mongodb database URI
 const port = process.env.PORT || 3000;
-app.listen(port);
+
 
 // Web Server Check
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('App listening on port 3000')
 })
 
