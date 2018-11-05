@@ -33,7 +33,12 @@ Instead of using require you can use code below:
 // reviews(app);
 */
 
+// Point this production mongodb database URI
+// const port = process.env.PORT || 3000;
+// app.listen(port);
+
 module.exports = app;
+
 
 // Web Server Check
 app.listen(3000, () => {
