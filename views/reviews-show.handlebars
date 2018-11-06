@@ -18,9 +18,13 @@
         <hr>
 
         <!-- Show Comments -->
+        <!-- use an each block to display one copy of the comment handlebars
+        partial for each item in the commnts arrary -->
         {{#each comments}}
+        <!-- remember the greater than sign signifies that comment handlebars
+        is a partial -->
             {{> comment}}
         {{/each}}
-        
+
     </div>
 </div>
