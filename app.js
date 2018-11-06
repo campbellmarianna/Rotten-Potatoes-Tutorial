@@ -20,8 +20,14 @@ const mongoose = require('mongoose');
 // Import Comment object by require Comment in app.js
 const Comment = require('./models/comment');
 
+// Import comments by require comments in app.js
+const commentsController = require('./controllers/comments');
+
 // Import models/review.js into app.js
 const Review = require('./models/review');
+
+// Import our reviews.js file into our app.js file
+const reviewsContoller = require('./controllers/reviews');
 
 // Create engine
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -34,13 +40,13 @@ app.use(bodyParser.json());
 // override with POST having ?_method=DELETE or ?_method=PUT
 app.use(methodOverride('_method'));
 
-// Import our reviews.js file into our app.js file
-const reviews = require('./controllers/reviews')(app);
+
 
 /*
 Instead of using require you can use code below:
-// reviews(app);
 */
+reviewsContoller(app);
+commentsController(app);
 
 // Point this production mongodb database URI
 const port = process.env.PORT || 3000;

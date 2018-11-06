@@ -1,5 +1,6 @@
 // controllers/reviews.js
 const Review = require('../models/review');
+const Comment = require('../models/comment');
 
 module.exports = function(app, review) {
     //ROOT ROUTE - INDEX
@@ -33,9 +34,15 @@ module.exports = function(app, review) {
 
     // SHOW
     app.get('/reviews/:id', (req, res) => {
+        // find review
         Review.findById(req.params.id).then((review) => {
-            res.render('reviews-show', { review: review })
+            // fetch its comment
+            Comment.find({ reviewId: req.params.id }).then(comments => {
+                //respond with the template with both values
+                res.render('reviews-show', { review: review, comments: comments })
+            })
         }).catch((err) => {
+            // catch errors
             console.log(err.message);
         });
     });
