@@ -56,7 +56,7 @@ describe('Reviews', () => {
                     // end this test and move onto the next
                     done();
                 });
-    })
+    });
 
 
 /*

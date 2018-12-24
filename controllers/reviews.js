@@ -8,12 +8,18 @@ module.exports = function(app, review) {
         Review.find()
             // Provide a function for the Promise to call when it resolves- when it finished whatever it was doing.
            .then(reviews => {
-               res.render('reviews-index', { reviews: reviews });
+               //=> RETURN JSON
+               if (req.header('Content-Type') == 'application/json') { return res.send({ reviews: reviews});}
+
+               //=> RETURN HTML
+               return res.render('reviews-index', {reviews: reviews }); //=> RENDER A TEMPLATE
         })
         // Provide a function for the promise to call if it is rejected. A Promise is rejected if it fails.
         .catch(err => {
             console.log(err);
         });
+
+
     });
 
     //NEW
